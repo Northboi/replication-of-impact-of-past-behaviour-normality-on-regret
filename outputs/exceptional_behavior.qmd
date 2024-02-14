@@ -296,7 +296,7 @@ ggplot(data_long, aes(x = variable, y = percentage, fill = Character)) +
   scale_x_discrete(labels = new_labels) +
   labs(x = NULL, y = "Percentage") +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 5),  # Set angle to 0 for horizontal labels
+  theme(axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 7),  # Set angle to 0 for horizontal labels
         legend.position = "bottom")
 
 ggsave(
