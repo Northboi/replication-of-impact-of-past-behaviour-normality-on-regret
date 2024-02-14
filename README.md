@@ -1,4 +1,4 @@
-# exceptional behaviors in accidents will receive more social sympathy but will not receive any actual benefits
+# Exceptional behaviors in accidents will receive more social sympathy but will not receive any actual benefits
 
 This repo contains the code and data to produce the following:
 
