@@ -9,8 +9,7 @@
 library(ggplot2)
 
 # Correcting the mistakenly entered values for 'Sc2_random_1' and 'Sc2_random_2'
-data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
-str(data)
+data <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
 
 agg_data <- data.frame(
   category = rep(c("Regret", "Luck"), each = 2),
@@ -25,12 +24,12 @@ agg_data$proportion <- with(agg_data, count / tapply(count, category, FUN = sum)
 ggplot(agg_data, aes(x = category, y = proportion, fill = character)) +
   geom_bar(stat = "identity", position = position_dodge()) +
   scale_y_continuous(labels = scales::percent) +
-  labs(title = "Part 2: Proportions for perceived regret and luck", x = NULL, y = "Percentage", fill = "Character") +
+  labs(x = NULL, y = "Percentage", fill = "Character") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 0, hjust = 0.5))
 
 ggsave(
-  "replication/plots/figure2.png",
+  "../replication/plots/figure2.png",
   height = 100,
   width = 133.33,
   units = "mm",

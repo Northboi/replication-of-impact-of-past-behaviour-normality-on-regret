@@ -6,24 +6,24 @@
 # License: MIT
 
 #### Workspace setup ####
-# Load necessary libraries
 library(tidyverse)
-
+library(kableExtra)
 # Load the data
-data <- read_csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
+data <- read_csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
 
 # Select and rename the specified columns, and take the first 10 rows
 selected_data <- data %>%
   select(Sc1_regret, sc1_socnorms1, sc1_socnorms2, sc1_combinednorms) %>%
-  rename('Regret' = Sc1_regret, 'Injunctive norms' = sc1_socnorms1, 'Descriptive norms' = sc1_socnorms2, 'Negative affect' = sc1_combinednorms) %>%
+  rename("Regret" = Sc1_regret, 
+         "Injunctive norms" = sc1_socnorms1, 
+         "Descriptive norms" = sc1_socnorms2, 
+         "Negative affect" = sc1_combinednorms) %>%
   slice(1:10)
 
-column_names <- c("Regret", "Injunctive norms", "Descriptive norms", "Negative affect")
-kable_styled <- kable(selected_data, col.names = column_names, format = "html", align = 'c', escape = FALSE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover")) %>%
-  
-  # Print the styled table
-  print(kable_styling)
+# Generate the table with kable and apply kableExtra styling, including a caption with a label for referencing
+kable(selected_data, format = "latex", booktabs = TRUE, align = 'c', escape = FALSE, caption = "First 10 rows of four responses variables of part 1.") %>%
+  kable_styling(full_width = FALSE, position = "center") %>%
+  add_header_above(c("Data for Part 1: Hitch-hiker" = 4))
 
-file_path <- "replication/tables/Table1.csv"
+file_path <- "../replication/tables/Table1.csv"
 write.csv(selected_data, file_path, row.names = FALSE)

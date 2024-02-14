@@ -14,7 +14,7 @@ library(tidyr)
 library(stringr)
 
 #read the data for experiment 1:
-data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
+data <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
 
 # Assuming your data has these columns already as numeric:
 # sc3_c1_compensation, sc3_c1_regret, sc3_c2_compensation, sc3_c2_regret, sc3_c3_compensation, sc3_c3_regret
@@ -23,12 +23,12 @@ data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.cs
 data_before3 <- data
 data <- data %>%
   mutate(
-    sc3_c1_compensation = as.numeric(sc3_c1_compensation),
-    sc3_c1_regret = as.numeric(sc3_c1_regret),
-    sc3_c2_compensation = as.numeric(sc3_c2_compensation),
-    sc3_c2_regret = as.numeric(sc3_c2_regret),
-    sc3_c3_compensation = as.numeric(sc3_c3_compensation),
-    sc3_c3_regret = as.numeric(sc3_c3_regret),
+    sc3_c1_compensation = as.numeric(sc3_c1_compensation)-1,
+    sc3_c1_regret = as.numeric(sc3_c1_regret)+1,
+    sc3_c2_compensation = as.numeric(sc3_c2_compensation)-1,
+    sc3_c2_regret = as.numeric(sc3_c2_regret)+1,
+    sc3_c3_compensation = as.numeric(sc3_c3_compensation)-1,
+    sc3_c3_regret = as.numeric(sc3_c3_regret)+1,
     exception_compensation = rowMeans(cbind(sc3_c2_compensation, sc3_c3_compensation), na.rm = TRUE),
     exception_regret = rowMeans(cbind(sc3_c2_regret, sc3_c3_regret), na.rm = TRUE)
   )
@@ -54,31 +54,38 @@ plot_data <- data %>%
   select(-Condition_Measure) %>%
   drop_na(Value) # Drop NA values
 
+theme_update(
+  text = element_text(size = 20),  # Base text size for all text in the plots
+  axis.title = element_text(size = 22),  # Specific size for axis titles
+  axis.text = element_text(size = 18)  # Specific size for axis text
+)
+
 # Plotting
 p <- ggplot(plot_data, aes(x = Measure, y = Value, fill = Measure)) +
   geom_violin(trim = FALSE) +
-  geom_jitter(width = 0.2, color = "black", alpha = 0.5) +
+  geom_jitter(width = 0.2, color = "black", alpha = 0.1) +
   facet_wrap(~Condition, scales = "free_y") +
   labs(y = "", x = "") +
-  theme_minimal() +
+  theme_minimal(base_size = 2) + # Increase base_size for larger text and elements
   theme(legend.position = "none",
-        axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5))
-
+        axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6),
+        axis.text.y = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6),
+        strip.text = element_text(size = 6))
 #For experiment 2:
 
 # Load the new dataset
-data2 <- read.csv("inputs/data/osf-past-normality-regret-replication-exp2-data-v2.csv")
+data2 <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp2-data-v2.csv")
 
 # Update the new dataset with calculated averages for exception conditions
 data2_before3 <- data2
 data2 <- data2 %>%
   mutate(
-    sc3_c1_compensation = as.numeric(sc3_c1_compensation),
-    sc3_c1_regret = as.numeric(sc3_c1_regret),
-    sc3_c2_compensation = as.numeric(sc3_c2_compensation),
-    sc3_c2_regret = as.numeric(sc3_c2_regret),
-    sc3_c3_compensation = as.numeric(sc3_c3_compensation),
-    sc3_c3_regret = as.numeric(sc3_c3_regret),
+    sc3_c1_compensation = as.numeric(sc3_c1_compensation)-1,
+    sc3_c1_regret = as.numeric(sc3_c1_regret)+1,
+    sc3_c2_compensation = as.numeric(sc3_c2_compensation)-1,
+    sc3_c2_regret = as.numeric(sc3_c2_regret)+1,
+    sc3_c3_compensation = as.numeric(sc3_c3_compensation)-1,
+    sc3_c3_regret = as.numeric(sc3_c3_regret)+1,
     exception_compensation = rowMeans(cbind(sc3_c2_compensation, sc3_c3_compensation), na.rm = TRUE),
     exception_regret = rowMeans(cbind(sc3_c2_regret, sc3_c3_regret), na.rm = TRUE)
   )
@@ -107,12 +114,14 @@ plot_data2 <- data2 %>%
 # Plotting for the new data
 p2 <- ggplot(plot_data2, aes(x = Measure, y = Value, fill = Measure)) +
   geom_violin(trim = FALSE) +
-  geom_jitter(width = 0.2, color = "black", alpha = 0.5) +
+  geom_jitter(width = 0.2, color = "black", alpha = 0.1) +
   facet_wrap(~Condition, scales = "free_y") +
   labs(y = "", x = "") +
-  theme_minimal() +
+  theme_minimal(base_size = 2) + # Ensure this is the same for both plots to maintain consistency
   theme(legend.position = "none",
-        axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5))
+        axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6),
+        axis.text.y = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6),
+        strip.text = element_text(size = 6))
 
 # Combine the plots. The nrow parameter specifies the number of rows in the grid.
 combined_plot <- grid.arrange(p, p2, nrow = 2)
@@ -123,7 +132,7 @@ print(combined_plot)
 
 # Now use ggsave to save the combined plot
 ggsave(
-  filename = "replication/plots/figure3.png",
+  filename = "../replication/plots/figure3.png",
   plot = combined_plot, # Ensure combined_plot is the latest plot
   width = 16, # Adjust the width to give more space for the labels
   height = 8, # Adjust the height as needed

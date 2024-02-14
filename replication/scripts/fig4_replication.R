@@ -17,17 +17,17 @@ library(stringr)
 # sc3_c1_compensation, sc3_c1_regret, sc3_c2_compensation, sc3_c2_regret, sc3_c3_compensation, sc3_c3_regret
 
 #read the data for experiment 1:
-data_before3 <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
+data_before3 <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
 
 # Convert compensation and regret columns to numeric type
 data_before3 <- data_before3 %>%
   mutate(
-    sc3_c1_compensation = as.numeric(sc3_c1_compensation),
-    sc3_c1_regret = as.numeric(sc3_c1_regret),
-    sc3_c2_compensation = as.numeric(sc3_c2_compensation),
-    sc3_c2_regret = as.numeric(sc3_c2_regret),
-    sc3_c3_compensation = as.numeric(sc3_c3_compensation),
-    sc3_c3_regret = as.numeric(sc3_c3_regret)
+    sc3_c1_compensation = as.numeric(sc3_c1_compensation)-1,
+    sc3_c1_regret = as.numeric(sc3_c1_regret)+1,
+    sc3_c2_compensation = as.numeric(sc3_c2_compensation)-1,
+    sc3_c2_regret = as.numeric(sc3_c2_regret)+1,
+    sc3_c3_compensation = as.numeric(sc3_c3_compensation)-1,
+    sc3_c3_regret = as.numeric(sc3_c3_regret)+1
   )
 
 # Reshape the data into a long format suitable for plotting
@@ -60,15 +60,16 @@ custom_colors <- c("Self-produced\nexception" = "#E24A33",
 # Plotting with custom colors and updated labels
 p3 <- ggplot(plot_data3, aes(x = Condition, y = Value, fill = Condition)) +
   geom_violin(trim = FALSE) +
-  geom_jitter(width = 0.2, color = "black", alpha = 0.5) +
+  geom_jitter(width = 0.2, color = "black", alpha = 0.1) +
   facet_wrap(~Measure, scales = "free_y", ncol = 3, labeller = label_parsed) +
   scale_fill_manual(values = custom_colors) +
   labs(y = "", x = "") +
-  theme_minimal() +
+  theme_minimal(base_size = 2) +
   theme(
     legend.position = "none",
-    strip.text.x = element_text(size = 10, margin = margin(2, 0, 2, 0)),
-    axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5) # Set angle to 0 for horizontal labels
+    strip.text.x = element_text(size = 6, margin = margin(2, 0, 2, 0)),
+    axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6), # Set angle to 0 for horizontal labels
+    axis.text.y = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6)
   )
 
 # For experiment 2:
@@ -76,16 +77,16 @@ p3 <- ggplot(plot_data3, aes(x = Condition, y = Value, fill = Condition)) +
 # Assuming your data_before3 has these columns already as numeric:
 # sc3_c1_compensation, sc3_c1_regret, sc3_c2_compensation, sc3_c2_regret, sc3_c3_compensation, sc3_c3_regret
 
-data2_before3 <- read.csv("inputs/data/osf-past-normality-regret-replication-exp2-data-v2.csv")
+data2_before3 <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp2-data-v2.csv")
 # Convert compensation and regret columns to numeric type
 data2_before3 <- data2_before3 %>%
   mutate(
-    sc3_c1_compensation = as.numeric(sc3_c1_compensation),
-    sc3_c1_regret = as.numeric(sc3_c1_regret),
-    sc3_c2_compensation = as.numeric(sc3_c2_compensation),
-    sc3_c2_regret = as.numeric(sc3_c2_regret),
-    sc3_c3_compensation = as.numeric(sc3_c3_compensation),
-    sc3_c3_regret = as.numeric(sc3_c3_regret)
+    sc3_c1_compensation = as.numeric(sc3_c1_compensation)-1,
+    sc3_c1_regret = as.numeric(sc3_c1_regret)+1,
+    sc3_c2_compensation = as.numeric(sc3_c2_compensation)-1,
+    sc3_c2_regret = as.numeric(sc3_c2_regret)+1,
+    sc3_c3_compensation = as.numeric(sc3_c3_compensation)-1,
+    sc3_c3_regret = as.numeric(sc3_c3_regret)+1
   )
 
 # Reshape the data into a long format suitable for plotting
@@ -113,15 +114,16 @@ plot2_data3 <- data2_before3 %>%
 # Plotting with custom colors and updated labels
 p32 <- ggplot(plot2_data3, aes(x = Condition, y = Value, fill = Condition)) +
   geom_violin(trim = FALSE) +
-  geom_jitter(width = 0.2, color = "black", alpha = 0.5) +
+  geom_jitter(width = 0.2, color = "black", alpha = 0.1) +
   facet_wrap(~Measure, scales = "free_y", ncol = 3, labeller = label_parsed) +
   scale_fill_manual(values = custom_colors) +
   labs(y = "", x = "") +
-  theme_minimal() +
+  theme_minimal(base_size = 2) +
   theme(
     legend.position = "none",
-    strip.text.x = element_text(size = 10, margin = margin(2, 0, 2, 0)),
-    axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5) # Set angle to 0 for horizontal labels
+    strip.text.x = element_text(size = 6, margin = margin(2, 0, 2, 0)),
+    axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6), # Set angle to 0 for horizontal labels
+    axis.text.y = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6)
   )
 
 # Print the plot
@@ -134,7 +136,7 @@ print(combined_plot)
 
 # Now use ggsave to save the combined plot
 ggsave(
-  filename = "replication/plots/figure4.png",
+  filename = "../replication/plots/figure4.png",
   plot = combined_plot, # Ensure combined_plot is the latest plot
   width = 16, # Adjust the width to give more space for the labels
   height = 8, # Adjust the height as needed
