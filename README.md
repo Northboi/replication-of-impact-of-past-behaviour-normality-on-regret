@@ -12,6 +12,17 @@ inputs
   - osf-past-normality-regret-replication-exp2-data-v2 - data for figure 3, 4
 - literature
   - Kutscher &amp; Feldman 2019 CogEmo past behavior &amp; regret-exceptionality replication &amp; extension-w-supplement - the original paper of which we make a reproduction.
+- llm
+  - usage.txt - The conversation history with ChatGPT
+- sketches
+  - figure1_sketch.png
+  - figure2_sketch.png
+  - figure3_sketch.png
+  - figure4_sketch.png
+  - table1_sketch.png
+  - table2_sketch.png
+  - table3_sketch.png
+  
   
 outputs
 
@@ -54,4 +65,4 @@ To replicate a figure, run the corresponding R file stored in replication/script
 
 To replicate a table, run the corresponding R file stored in replication/scripts/tab{number}_replication.R. The output will be saved as an image in replication/plots/tab{number}.csv .
 
-The replication on the Social Science Reproduction Platform can be found at
+The replication on the Social Science Reproduction Platform can be found at https://www.socialsciencereproduction.org/reproductions/c0252de2-3c67-4ce7-9dfa-bb770beb753b/index

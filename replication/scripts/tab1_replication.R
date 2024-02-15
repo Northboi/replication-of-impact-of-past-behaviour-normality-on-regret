@@ -20,8 +20,8 @@ selected_data <- data %>%
          "Negative affect" = sc1_combinednorms) %>%
   slice(1:10)
 
-# Generate the table with kable and apply kableExtra styling, including a caption with a label for referencing
-kable(selected_data, format = "latex", booktabs = TRUE, align = 'c', escape = FALSE, caption = "First 10 rows of four responses variables of part 1.") %>%
+# Generate the table with kable and apply kableExtra styling
+kable(selected_data, format = "latex", booktabs = TRUE, align = 'c', escape = FALSE) %>%
   kable_styling(full_width = FALSE, position = "center") %>%
   add_header_above(c("Data for Part 1: Hitch-hiker" = 4))
 

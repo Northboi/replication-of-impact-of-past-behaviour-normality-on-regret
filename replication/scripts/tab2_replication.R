@@ -48,12 +48,10 @@ header_labels <- c(" " = 1, "Regret" = 2, "Social norms (injunctive)" = 2,
                    "Social norms (descriptive)" = 2, "Negative affect" = 2)
 
 # Generate the table
-kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 4)), caption = " Part 1 (hitchhiker): Counts and proportions for perceived regret, social norms, and negative affect.") %>%
+kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 4))) %>%
   kable_styling(latex_options = c("striped", "scale_down")) %>%
   add_header_above(header_labels) %>%
   column_spec(1, bold = TRUE)
-
-
 
 file_path <- "../replication/tables/Table2.csv"
 write.csv(table_data, file_path, row.names = FALSE)

@@ -2,7 +2,8 @@
 title: "People with exceptional behaviors in accidents will receive more social sympathy but will not receive any actual benefits"
 author: 
   - Shiji Zhang, Zongcheng Cao
-thanks: "Code and data are available at:https://github.com/Northboi/replication-of-impact-of-past-behaviour-normality-on-regret"
+thanks: "Code and data are available at:https://github.com/Northboi/replication-of-impact-of-past-behaviour-normality-on-regret . Replication aspects are available at: https://www.socialsciencereproduction.org/reproductions/c0252de2-3c67-4ce7-9dfa-bb770beb753b/index" 
+
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
 abstract: |
@@ -63,7 +64,7 @@ After analysis, we found that people who encountered bad situations due to excep
 ## Data Source
 
   The datasets used in this analysis are collected by Lucas Kutscher from Maastricht University, and Gilad Fledman from Maastricht University and University of Hong Kong[@cite0]. Real life data is collected in two datasets, in order to replicate the classic experiments initialized by Kahneman and Miller’s [original] on norm theory. The experiments are dedicated to three various scenarios, which will be discussed in Section 3.1. The original experiments were created in 1986, and the datasets by Kutscher and Fledman will be collected in 2019.
-The datasets are chosen because Kutscher and Fledman modified and improved the design of the original experiment, making it more precise and unbiased; details on the improvement will be elaborate in Section 3.2. Moreover, the original experiment was conducted many years ago, which brings difficulties accessing the original data. For the reason above, datasets from Kutscher and Fledman are more appropriate for this analysis.The packages below are used in the process of making this analysis: psych[@psych], ggplot2[@ggplot2], dplyr[@dplyr], effsize[@effsize], reshape2[@reshape2], tidyverse[@tidyverse], knitr[@knitr], tidyr[@tidyr], stringr[@stringr], kableExtra[@kableExtra], Hmisc[@Hmisc], gridExtra[@gridExtra]
+The datasets are chosen because Kutscher and Fledman modified and improved the design of the original experiment, making it more precise and unbiased; details on the improvement will be elaborate in Section 3.2. Moreover, the original experiment was conducted many years ago, which brings difficulties accessing the original data. For the reason above, datasets from Kutscher and Fledman are more appropriate for this analysis.The packages below are used in the process of making this analysis: psych[@psych], ggplot2[@rGgplot2], dplyr[@citedplyr], effsize[@effsize], reshape2[@reshape2], tidyverse[@citetidyverse], knitr[@citeknitr], tidyr[@tidyr], stringr[@stringr], kableExtra[@kableExtra], Hmisc[@Hmisc], gridExtra[@gridExtra]
 
 ## Attributes
 
@@ -146,9 +147,14 @@ The results of the questions are allocated in the variables “sc3_c1_compensati
 
   The variables that are applied in this study are: “Sc1_regret”, “sc1_socnorms1”, “sc1_socnorms2”, “sc1_combinednorms”, “Sc2_regret”, “Sc2_random_1”, “Sc2_random_2”, “Sc2_lucky”, “Sc3_C1_quiz1”, “Sc3_C1_quiz2”, “Sc3_C1_quiz3”, “Sc3_C2_quiz1”, “Sc3_C2_quiz2”, “Sc3_C2_quiz3”, “Sc3_C3_quiz1”, “Sc3_C3_quiz2”, “Sc3_C3_quiz3”. If the question contains various answers, such as (choices: Mr. Jones, Mr. Smith), then 1 represents the first choice, and 2 represents the second choice. If the question involves rating, such as (1 – no regret to 5 – very strong regret)[@cite0], then the actual number represents the rating.
 
-The table \@ref(tab:ptonedata)is a glimpse of the dataset, with the four responses variables of part 1 that will be used in the analysis.
+The (@tbl-one) is a glimpse of the dataset, with the four responses variables of part 1 that will be used in the analysis.
 
-```{r ptonedata, message=FALSE, echo=FALSE, results='asis'}
+```{r results='asis'}
+#| label: tbl-one
+#| tbl-cap: "First 10 rows of four responses variables of part 1."
+#| echo: false
+#| message: false
+
 library(tidyverse)
 library(kableExtra)
 # Load the data
@@ -163,8 +169,8 @@ selected_data <- data %>%
          "Negative affect" = sc1_combinednorms) %>%
   slice(1:10)
 
-# Generate the table with kable and apply kableExtra styling, including a caption with a label for referencing
-kable(selected_data, format = "latex", booktabs = TRUE, align = 'c', escape = FALSE, caption = "First 10 rows of four responses variables of part 1.") %>%
+# Generate the table with kable and apply kableExtra styling
+kable(selected_data, format = "latex", booktabs = TRUE, align = 'c', escape = FALSE) %>%
   kable_styling(full_width = FALSE, position = "center") %>%
   add_header_above(c("Data for Part 1: Hitch-hiker" = 4))
 
@@ -176,10 +182,17 @@ write.csv(selected_data, file_path, row.names = FALSE)
 # Result
 ## Part 1: Hitch-hiker: 
 
-In the first part, after 342 participants answered the four measurement questions about Mr. Jones and Mr. Smith, the processed data were shown in table \@ref(tab:ptonetab). 
+In the first part, after 342 participants answered the four measurement questions about Mr. Jones and Mr. Smith, the processed data were shown in (@tbl-two).
 
 In “Regret” aspect, 315 out of 342 participants chose Mr. Jones, who took hitch-hikers as an exceptional behavior. Only 27 people chose Mr. Smith, who usually takes hitch-hikers. In order to better show the difference in votes, the "Percentage" of "Regret" in the chart can achieve this. 92.1% of the participants thought Mr. Jones would regret for this incident more, while only 7.9 % of participants thought Mr. Smith would regret it more. This big difference in voting means that the vast majority of participants believed that Mr. Jones, who was robbed due to his exceptional behavior, would regret it more. In terms of "Social Injunctive norms", even more participants chose Mr. Jones, which are 326 participants, accounting for 95.3% of the total participants. Only 16 participants, or 4.7%, chose Mr. Smith. This shows that nearly 95% of people feel that Mr. Jones, who was robbed because he suddenly changed his routine and acted exceptionally, will be criticized by more people in society. People might criticize him because if he did not choose to take hitch-hikers on that day, he wouldn't have been robbed. In terms of "Social descriptive norms", 90.6% of the total participants (310 participants) chose Mr. Smith, while only 9.4% (32 participants) chose Mr. Jones. This means that most people think that in the same situation where Mr. Smith was robbed for taking hitch-hikers, Mr. Smith, who regarded this behavior as a routine, would be regarded as a relatively normal situation. People may think that Mr. Smith takes hitch-hikers everyday. If he is robbed on one of those days, it is just because he was unlucky that day, people are not inclined to blame him. In terms of "Negative Affect", 92.7% of the total participants (317 participants) chose Mr. Smith, while only 7.3% (25 participants) chose Mr. Jones. "Negative Affect" is a conclusion drawn from the above-mentioned "Regret", "Social Injunctive norms" and "Social descriptive norms". Considering the routine habits of Mr. Jones and Mr. Smith, the vast majority of participants believed that Mr. Jones would have more negative consequences from being robbed by hitch-hikers.
-```{r ptonetab, echo=FALSE}
+
+```{r results='asis'}
+#| label: tbl-two
+#| tbl-cap: "Part 1 (hitchhiker): Counts and proportions for perceived regret, social norms, and negative affect"
+#| echo: false
+#| message: false
+
+
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -222,21 +235,22 @@ header_labels <- c(" " = 1, "Regret" = 2, "Social norms (injunctive)" = 2,
                    "Social norms (descriptive)" = 2, "Negative affect" = 2)
 
 # Generate the table
-kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 4)), caption = " Part 1 (hitchhiker): Counts and proportions for perceived regret, social norms, and negative affect.") %>%
+kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 4))) %>%
   kable_styling(latex_options = c("striped", "scale_down")) %>%
   add_header_above(header_labels) %>%
   column_spec(1, bold = TRUE)
 
-
-
 file_path <- "../replication/tables/Table2.csv"
 write.csv(table_data, file_path, row.names = FALSE)
 ```
-  
-  
-  In order to better visualize the proportion of participants choosing Mr. Jones and Mr. Smith in each question, Figure \@ref(fig:fig1) shows the proportion of participants choosing Mr. Jones and Mr. Smith in the hitch-hikers robbery event in "Regret", "Social Injunctive norms", "Social descriptive norms" and "Negative affects" four measurement questions. In Table 1, we only see data about numbers, but after visualizing these numbers in Figure 1 by bar charts, we can clearly see that the difference in votes between Mr. Jones and Mr. Smith in every aspect is big. That's what's interesting about the results of this study. In any of the four areas, the difference in votes between Mr Jones and Mr Smith was huge and not even close. This shows that among the four questions in the first part, most of the participants in the hitch-hikers’ robbery incident had the same opinions. Participants generally believed that Mr. Jones would feel more regret, be more negatively affected, and be criticized by society more for being robbed due to his exceptional behavior.
 
-```{r fig1, warning=FALSE, message=FALSE, echo=FALSE, fig.cap="Part 1: Proportions for perceived regret, injunctive social norms, descriptive social norms, and negative affect"}
+```{r}
+#| label: fig-one
+#| fig-cap: "Part 1: Proportions for perceived regret, injunctive social norms, descriptive social norms, and negative affect"
+#| echo: false
+#| warning: false
+#| message: false
+
 library(psych)
 library(effsize)
 library(ggplot2)
@@ -307,11 +321,22 @@ ggsave(
   dpi = 300
 )
 ```
+
+In order to better visualize the proportion of participants choosing Mr. Jones and Mr. Smith in each question, Figure (@fig-one) shows the proportion of participants choosing Mr. Jones and Mr. Smith in the hitch-hikers robbery event in "Regret", "Social Injunctive norms", "Social descriptive norms" and "Negative affects" four measurement questions. In Table 1, we only see data about numbers, but after visualizing these numbers in Figure 1 by bar charts, we can clearly see that the difference in votes between Mr. Jones and Mr. Smith in every aspect is big. That's what's interesting about the results of this study. In any of the four areas, the difference in votes between Mr Jones and Mr Smith was huge and not even close. This shows that among the four questions in the first part, most of the participants in the hitch-hikers’ robbery incident had the same opinions. Participants generally believed that Mr. Jones would feel more regret, be more negatively affected, and be criticized by society more for being robbed due to his exceptional behavior.
+
+
 ## Part 2: Car accident
 
-  In the second part, the same 342 participants answered the four measurement questions of Mr. Jones and Mr. Smith. The processed data are shown in Table 3.In terms of "regret", 277 of the 342 participants chose Mr. White who caused a car accident due to an exceptional change of route home, while only 65 people chose Mr. Adams. 81% of the participants thought Mr. White would feel more regretful and sad about the car accident, while only 19% thought Mr. Adams would be more regretful and sad. In terms of "Luck", the number of people and proportions choosing Mr. Adams and Mr. White are closer. 114 people chose Mr. White in terms of "Luck" and thought he had worse luck, which accounted for one-third of the total participants, or 33.3%. Two-thirds, or 66.7%, believed that Mr. White had worse luck. A total of 228 participants chose Mr. White in terms of "Luck".
+  In the second part, the same 342 participants answered the four measurement questions of Mr. Jones and Mr. Smith. The processed data are shown in (@tbl-three).In terms of "regret", 277 of the 342 participants chose Mr. White who caused a car accident due to an exceptional change of route home, while only 65 people chose Mr. Adams. 81% of the participants thought Mr. White would feel more regretful and sad about the car accident, while only 19% thought Mr. Adams would be more regretful and sad. In terms of "Luck", the number of people and proportions choosing Mr. Adams and Mr. White are closer. 114 people chose Mr. White in terms of "Luck" and thought he had worse luck, which accounted for one-third of the total participants, or 33.3%. Two-thirds, or 66.7%, believed that Mr. White had worse luck. A total of 228 participants chose Mr. White in terms of "Luck".
 
-```{r echo=FALSE}
+In order to visualize the data of table3, this can be achieved by relying on the bar charts of (@fig-two). (@fig-two) shows the proportion of participants choosing Mr. Adams and Mr. White in the car accident in "Regret" and "Luck" two measurement questions. As the red and blue bars in each measurement question shows, it can be seen that Mr. White, who made an exception (changed his route home) and suffered a car accident, is considered to be more regretful and less lucky. And the height difference between the red bar and the blue bar is still big, although not as big as in figure 1. This shows that in this car accident, when the participants were faced with the two measurement questions "regret" and "luck", their opinions on choosing between Mr. Adams and Mr. White were still consistent, which tends to choose the one who did the exceptional behavior.
+
+```{r results='asis'}
+#| label: tbl-three
+#| tbl-cap: "Part 2 (car accident): Counts and proportions for perceivedregret and luck"
+#| echo: false
+#| message: false
+
 library(knitr)
 library(kableExtra)
 
@@ -341,7 +366,7 @@ table_data <- data.frame(
 header_labels <- c(" " = 1, "Regret" = 2, "Luck" = 2)
 
 # Generate the table with LaTeX formatting
-  kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 2)),caption = " Part 2 (car accident): Counts and proportions for perceivedregret and luck") %>%
+  kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 2))) %>%
   kable_styling(latex_options = c("striped", "scale_down")) %>%
   add_header_above(header_labels) %>%
   column_spec(1, bold = TRUE)
@@ -350,9 +375,14 @@ file_path <- "../replication/tables/Table3.csv"
 write.csv(table_data, file_path, row.names = FALSE)
 ```
 
-  In order to visualize the data of table3, this can be achieved by relying on the bar charts of Figure2. Figure2 shows the proportion of participants choosing Mr. Adams and Mr. White in the car accident in "Regret" and "Luck" two measurement questions. As the red and blue bars in each measurement question shows, it can be seen that Mr. White, who made an exception (changed his route home) and suffered a car accident, is considered to be more regretful and less lucky. And the height difference between the red bar and the blue bar is still big, although not as big as in figure 1. This shows that in this car accident, when the participants were faced with the two measurement questions "regret" and "luck", their opinions on choosing between Mr. Adams and Mr. White were still consistent, which tends to choose the one who did the exceptional behavior.
+```{r}
+#| label: fig-two
+#| fig-cap: "Part 2: Proportions for perceived regret and luck"
+#| echo: false
+#| warning: false
+#| message: false
 
-```{r fig2, warning=FALSE, message=FALSE, echo=FALSE, fig.cap="Part 2: Proportions for perceived regret and luck."}
+
 library(ggplot2)
 
 # Correcting the mistakenly entered values for 'Sc2_random_1' and 'Sc2_random_2'
@@ -387,9 +417,9 @@ ggsave(
   Two sets of experiments are done separately for part 3, designated as Experiment 1 and Experiment 2, respectively. As mentioned in Section 3.2.3, the respondents are asked the same measurement questions for three different small scenarios, which are [Routine behavior condition], [Self-produced exception condition], and [Other-produced exception condition]. The first question requires respondents to choose how much compensation should Mr. Paul receives in each condition, where 0 represents 0 dollar, and 10 represents 1,000,000 dollars. The second question asks for respondents to choose the level of regret Mr. Paul feels if he does not receive any compensation, where 0 represents no regret, and 10 represents very regret. 
 
 
-  In Figure 3, two separated exception conditions are combined as one variable [Exception condition]. Both exception conditions hold similar properties, and similar shapes in the violin graphs, therefore conjoining two of the conditions will not end up with any ambiguous outcome. On the other hand, by merging both exception conditions, the differences in responses between routine and exceptions can be shown with more clarity in such visuals. 
+  In the (@fig-san), two separated exception conditions are combined as one variable [Exception condition]. Both exception conditions hold similar properties, and similar shapes in the violin graphs, therefore conjoining two of the conditions will not end up with any ambiguous outcome. On the other hand, by merging both exception conditions, the differences in responses between routine and exceptions can be shown with more clarity in such visuals. 
 
-  Figure 3 contains four panels, each demonstrates two violin plots for [Routine condition] and [Exception condition]. Each black dot in the violin plot stands for a respondent’s answer for the corresponding questions. The top two panels represent the results for the compensation question and the regret question of Experiment 1, which are collected from the same 342 participants who answer Part 1 and Part 2. Thereupon, the bottom two panels are the results for both questions of Experiment 2, collected from 344.
+  There are four panels in (@fig-san), each demonstrates two violin plots for [Routine condition] and [Exception condition]. Each black dot in the violin plot stands for a respondent’s answer for the corresponding questions. The top two panels represent the results for the compensation question and the regret question of Experiment 1, which are collected from the same 342 participants who answer Part 1 and Part 2. Thereupon, the bottom two panels are the results for both questions of Experiment 2, collected from 344.
 
   Firstly, the panel located on the top left is the results of the compensation question in Experiment 1. It is evident that the violin graphs for [Routine condition] and [Exception condition] hold identical shapes. The modes of responses are clearly 5, which reflect on the compensation of 500,000 dollars, and the second most chosen value is 10, which means the compensation for Mr. Paul should be 1,000,000 dollars. Without a doubt, the opinion on the amount of compensation for Mr. Paul, does not vary due to the type of condition (routine or exception) for most of the respondents in Experiment 1.
 
@@ -399,7 +429,14 @@ ggsave(
 
   On the bottom right, is the result for the regret question in Experiment 2. This panel holds a high degree of similarity with the panel of regret for Experiment 1, which proves that two sets of independent respondents have equivalent opinion on the level of regret Mr. Paul feels if he does not receive any compensation. 
 
-```{r fig3, echo=FALSE, results='hide', message=FALSE, warning=FALSE, fig.cap="Part 3: Victim compensation and regret (with exception conditions combined). The top two plots are for Experiment 1, the bottom twoplots are for Experiment 2. Error bars represent standard error. Scales: Regret–1 to 5; Compensation–1 to 10"}
+```{r results='hide'}
+#| label: fig-san
+#| fig-cap: "Part 3: Victim compensation and regret (with exception conditions combined). The top two plots are for Experiment 1, the bottom twoplots are for Experiment 2. Error bars represent standard error. Scales: Regret–1 to 5; Compensation–1 to 10"
+#| echo: false
+#| warning: false
+#| message: false
+
+
 # For experiment 1:
 # Load necessary libraries
 library(ggplot2)
@@ -537,7 +574,7 @@ ggsave(
 
 
 
-  As mentioned, Figure 3 combined [Self-produced exception condition] and [Other-produced exception condition] into a single condition, [exception condition]. In Figure 4, these two exception conditions are treated separately, into two violin plots. By doing so, it is possible to identify the variation between two exception conditions, and contrast them with the [Routine Condition]. Figure 4 also contains four panels corresponding to two experiments, with three violin graphs in each panel representing three conditions. Same as Figure 3, the upper two panels are designated for Experiment 1, and the lower two are aligned with Experiment 2. 
+  As mentioned, Figure 3 combined [Self-produced exception condition] and [Other-produced exception condition] into a single condition, [exception condition]. In (@fig-four), these two exception conditions are treated separately, into two violin plots. By doing so, it is possible to identify the variation between two exception conditions, and contrast them with the [Routine Condition]. (@fig-four) also contains four panels corresponding to two experiments, with three violin graphs in each panel representing three conditions. Same as Figure 3, the upper two panels are designated for Experiment 1, and the lower two are aligned with Experiment 2. 
 
   The panel on the upper left demonstrates the results of compensation questions for Experiment 1. With the same conclusion as Figure 3, the violin plots for three conditions show matching characteristics, with the majority of participants vote for 5 as a compensation for Mr. Paul.
 
@@ -546,7 +583,14 @@ ggsave(
   The lower left panel is the results of compensation questions for Experiment 2. The violin plots for three conditions are similar in shape, with more even distribution of votes. 
 
   Lastly, the lower right panel displays results of level of regret for Experiment 2. The same pattern can be seen in the results of level of regret for Experiment 1, where [Self-produced exception condition] has a wider shape in the highest ranking 5, and a much thinner shape in the lower ranking numbers, compared to [Other-produced exception condition]. 
-```{r fig4, echo=FALSE, results='hide', message=FALSE, warning=FALSE, fig.cap="Part 3: Victim compensation and regret by conditions. The top two plots are for Experiment 1, the bottom two plots are for Experiment2. Error bars represent standard error. Scales: Regret–1 to 5; Compensation–1 to 10"}
+```{r results='hide'}
+#| label: fig-four
+#| fig-cap: "Part 3: Victim compensation and regret by conditions. The top two plots are for Experiment 1, the bottom two plots are for Experiment2. Error bars represent standard error. Scales: Regret–1 to 5; Compensation–1 to 10"
+#| echo: false
+#| warning: false
+#| message: false
+
+
 # For experiment 1:
 # Load necessary libraries
 library(ggplot2)

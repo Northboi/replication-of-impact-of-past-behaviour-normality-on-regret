@@ -35,7 +35,7 @@ table_data <- data.frame(
 header_labels <- c(" " = 1, "Regret" = 2, "Luck" = 2)
 
 # Generate the table with LaTeX formatting
-kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 2)),caption = " Part 2 (car accident): Counts and proportions for perceivedregret and luck") %>%
+kable(table_data, format = "latex", booktabs = TRUE, col.names = c("Character", rep(c("Count", "Percentage"), 2))) %>%
   kable_styling(latex_options = c("striped", "scale_down")) %>%
   add_header_above(header_labels) %>%
   column_spec(1, bold = TRUE)
