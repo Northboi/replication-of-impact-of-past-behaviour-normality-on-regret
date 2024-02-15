@@ -8,7 +8,7 @@ date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
 abstract: |
   # Abstract
-  "This study replicates Kutcher and Feldman's research on how deviating from daily routine behaviors affects regret. By analyzing routine or exceptional behavior, we aim to quantify regret, social norms, negative consequences, luck and compensation. A voting mechanism among 684 participants was used to measure these parameters in a variety of situations, including Hitchhiker incidents, route changes leading to car crashes, and changes in shopping habits leading to robberies. Our findings are consistent with those of Kutcher and Feldman, but in conclusion we tend to suggest that exceptional behavior increases social sympathy but also increases the likelihood of social criticism when an accident occurs."
+  "This study replicates Kutcher and Feldman's research on how deviating from daily routine behaviors affects regret. By analyzing routine or exceptional behavior, we aim to quantify regret, social norms, negative consequences, luck and compensation. A voting mechanism among 684 participants was used to measure these parameters in a variety of situations, including Hitchhiker incidents, route changes leading to car crashes, and changes in shopping habits leading to robberies. Our findings are consistent with those of Kutcher and Feldman, but in conclusion we tend to suggest that exceptional behavior increases social sympathy but actually did not bring any other practical benefits like more compensation or less social criticism from the happened incidents."
 format: pdf
 number-sections: true
 toc: TRUE
@@ -58,7 +58,7 @@ library(gridExtra)
 - In section 4.2, use table 3 and figure 2 to study whether people who are involved in a car accident due to changing their home route will regret it more.
 - In section 4.3, use figure 3 and figure 4 to study whether people who were robbed due to the exception of changing stores are considered more regretful and deserve more compensation.
 
-After analysis, we found that people who encountered bad situations due to exceptional behavior had more regrets, injunctive social norms, negative affect and bad luck, and were considered worthy of more compensation. People who encountered bad situations due to routine behavior simply had more descriptive social norms. Therefore, we obtained the same results for graphs and tables as the initial reproducing study from Kutscher and Feldman. In conclusion, we believe that these results illustrate that under the same bad incident   , people who do exceptional behavior are more likely to receive sympathy from society, but are also more likely to be criticized because of the harm caused by sudden changes and seems not likely to get other practical benefit from the incident.
+After analysis, we found that people who encountered bad situations due to exceptional behavior had more regrets, injunctive social norms, negative affect and bad luck, and were considered worthy of more compensation. People who encountered bad situations due to routine behavior simply had more descriptive social norms. Therefore, we obtained the same results for graphs and tables as the initial reproducing study from Kutscher and Feldman. In conclusion, we believe that these results illustrate that under the same bad incident   , people who do exceptional behavior are more likely to receive sympathy from society, but actually did not got any other practical benefits like more compensation or less social criticism from the happened incidents.
 
 # Data
 ## Data Source
