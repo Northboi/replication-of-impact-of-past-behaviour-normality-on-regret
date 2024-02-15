@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Figure 1 replication
+# Purpose: Test for used data
 # Author: Shiji Zhang, Zongcheng Cao
 # Date: 8 February 2024
 # Contact: kane.zhang@mail.utoronto.ca
