@@ -17,7 +17,7 @@ library(stringr)
 # sc3_c1_compensation, sc3_c1_regret, sc3_c2_compensation, sc3_c2_regret, sc3_c3_compensation, sc3_c3_regret
 
 #read the data for experiment 1:
-data_before3 <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
+data_before3 <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
 
 # Convert compensation and regret columns to numeric type
 data_before3 <- data_before3 %>%

@@ -12,7 +12,7 @@ library(kableExtra)
 library(reshape2)
 
 
-data <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
+data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
 # Your previous code for calculating counts and percentages...
 
 # Assuming 'data' is already loaded and pre-processed as per previous steps

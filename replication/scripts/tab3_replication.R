@@ -9,7 +9,7 @@
 library(knitr)
 library(kableExtra)
 
-data <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
+data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
 
 # Make sure your data is a factor with levels as "1" and "2" representing "Routine Adams" and "Exception White"
 data$Sc2_regret <- factor(data$Sc2_regret, levels = c(1, 2), labels = c("Routine Adams", "Exception White"))

@@ -9,7 +9,7 @@
 library(ggplot2)
 
 # Correcting the mistakenly entered values for 'Sc2_random_1' and 'Sc2_random_2'
-data <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
+data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
 
 agg_data <- data.frame(
   category = rep(c("Regret", "Luck"), each = 2),

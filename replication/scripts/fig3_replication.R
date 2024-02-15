@@ -14,7 +14,7 @@ library(tidyr)
 library(stringr)
 
 #read the data for experiment 1:
-data <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
+data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
 
 # Assuming your data has these columns already as numeric:
 # sc3_c1_compensation, sc3_c1_regret, sc3_c2_compensation, sc3_c2_regret, sc3_c3_compensation, sc3_c3_regret

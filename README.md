@@ -46,6 +46,7 @@ replication
   - tab1_replication.R
   - tab2_replication.R
   - tab3_replication.R
+  - test_data.R - Some tests of input data
 - tables - stores the replicated tables
   -table1.csv
   -table2.csv

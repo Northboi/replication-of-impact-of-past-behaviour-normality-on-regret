@@ -19,7 +19,7 @@ options(scipen=999.99, digits = 7)
 # Attempt to set working directory to the current R script location
 
 # Data loading and initial processing
-data <- read.csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
+data <- read.csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8-BOM")
 
 # Demographics handling and descriptive statistics
 data$age[data$age == 99] <- NA  # Handling outlier or incorrect age data

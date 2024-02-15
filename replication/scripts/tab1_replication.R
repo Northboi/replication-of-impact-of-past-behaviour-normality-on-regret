@@ -9,7 +9,7 @@
 library(tidyverse)
 library(kableExtra)
 # Load the data
-data <- read_csv("../inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
+data <- read_csv("inputs/data/osf-past-normality-regret-replication-exp1-data.csv")
 
 # Select and rename the specified columns, and take the first 10 rows
 selected_data <- data %>%
